@@ -12,3 +12,17 @@ let player1 = 0
 let player2 = 0
 
 // Adding the click event to boxes ( Adicionando o evento click aos boxes )
+
+for (let i = 0; i < boxes.length; i++) {
+
+// When someone clicks on the box ( Quando alguém clicar na caixa )
+
+  boxes[i].addEventListener('click', function() {
+    let el
+    if (player1 == player2) {
+      el = x    
+    } else {
+      el = o
+    }
+  })
+}
