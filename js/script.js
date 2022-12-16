@@ -24,5 +24,7 @@ for (let i = 0; i < boxes.length; i++) {
     } else {
       el = o
     }
+    let cloneEl = el.cloneNode(true)
+    this.appendChild(cloneEl)
   })
 }
