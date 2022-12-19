@@ -181,7 +181,7 @@ function checkWinCondition() {
   }
 
   if(counter == 9) {
-    console.log('Got old')
+    declareWinner('Got old')
   }
 
 }
@@ -189,21 +189,22 @@ function checkWinCondition() {
 // Clears the game, declares the winner and updates the scoreboard ( Limpa o jogo, declara o vencedor e atualiza o placar )
 
 function declareWinner(winner) {
-  let scoreboardX = document.querySelector('scoreboard-1')
-  let scoreboardO = document.querySelector('scoreboard-2')
-  let msg = ''
+  
+  let scoreboardX = document.querySelector('#scoreboard-1');
+  let scoreboardY = document.querySelector('#scoreboard-2');
+  let msg = ' ';
 
-  if(winner = 'x') {
-    scoreboardX.textContent = parseInt(scoreboardX.textContent) + 1
-    msg = 'Player 1 win'
-  } else if(winner = o) {
-    scoreboardO.textContent = parseInt(scoreboardO.textContent) + 1
-    msg = 'Player 2 win'
+  if(winner == 'x') {
+    scoreboardX.textContent = parseInt(scoreboardX.textContent) + 1;
+    msg = 'Player 1 win';
+  } else if(winner == 'o') {
+    scoreboardY.textContent = parseInt(scoreboardY.textContent) + 1;
+    msg = 'Player 2 win';
   } else {
-    msg = 'Got old'
+    msg = 'Got old';
   }
 
   // display message ( Exibe mensagem )
-  messageText.innerHTML = msg
-  messageContainer.classList.remove('hide')
+  messageText.innerHTML = msg;
+  messageContainer.classList.remove('hide');
 }
