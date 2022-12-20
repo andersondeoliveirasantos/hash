@@ -187,7 +187,6 @@ function checkWinCondition() {
 }
 
 // Clears the game, declares the winner and updates the scoreboard ( Limpa o jogo, declara o vencedor e atualiza o placar )
-
 function declareWinner(winner) {
   
   let scoreboardX = document.querySelector('#scoreboard-1');
@@ -204,7 +203,16 @@ function declareWinner(winner) {
     msg = 'Got old';
   }
 
-  // display message ( Exibe mensagem )
+  // Display message ( Exibe mensagem )
   messageText.innerHTML = msg;
   messageContainer.classList.remove('hide');
+
+  // Hide message ( Esconde mensagem )
+  setTimeout(function() {
+    messageContainer.classList.add('hide');
+  }, 3000);
+
+// Zero moves ( Zera jogadas )
+  player1 = 0;
+  player2 = 0;
 }
