@@ -215,4 +215,8 @@ function declareWinner(winner) {
 // Zero moves ( Zera jogadas )
   player1 = 0;
   player2 = 0;
+
+// Remove x e o
+let boxesTorRemove = document.querySelectorAll('.box div');
+  for(let i =)
 }
