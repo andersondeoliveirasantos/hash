@@ -218,5 +218,7 @@ function declareWinner(winner) {
 
 // Remove x e o
 let boxesTorRemove = document.querySelectorAll('.box div');
-  for(let i =)
+  for(let i = 0; i < boxesTorRemove.length; i++) {
+    boxesTorRemove[i].parentNode.removeChild(boxesTorRemove[i])
+  }
 }
