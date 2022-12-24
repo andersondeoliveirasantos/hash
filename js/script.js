@@ -64,11 +64,11 @@ function checkWinCondition() {
     let b3Child = b3.childNodes[0].className;
 
     if(b1Child == 'x' && b2Child == 'x' && b3Child == 'x') {
-    // x
-    declareWinner('x')
+      // x
+      declareWinner('x');
     } else if(b1Child == 'o' && b2Child == 'o' && b3Child == 'o') {
-    // o
-    declareWinner('o')
+      // o
+      declareWinner('o');
     }
   }
 
@@ -78,11 +78,11 @@ function checkWinCondition() {
     let b6Child = b6.childNodes[0].className;
 
     if(b4Child == 'x' && b5Child == 'x' && b6Child == 'x') {
-    // x
-    declareWinner('x')
+      // x
+      declareWinner('x');
     } else if(b4Child == 'o' && b5Child == 'o' && b6Child == 'o') {
-    // o
-    declareWinner('o')
+      // o
+      declareWinner('o');
     }
   }
 
@@ -92,11 +92,11 @@ function checkWinCondition() {
     let b9Child = b9.childNodes[0].className;
 
     if(b7Child == 'x' && b8Child == 'x' && b9Child == 'x') {
-    // x
-    declareWinner('x');
+      // x
+      declareWinner('x');
     } else if(b7Child == 'o' && b8Child == 'o' && b9Child == 'o') {
-    // o
-    declareWinner('o');
+      // o
+      declareWinner('o');
     }
   }
 
@@ -107,11 +107,11 @@ function checkWinCondition() {
     let b7Child = b7.childNodes[0].className;
 
     if(b1Child == 'x' && b4Child == 'x' && b7Child == 'x') {
-    // x
-    declareWinner('x')
+      // x
+      declareWinner('x');
     } else if(b1Child == 'o' && b4Child == 'o' && b7Child == 'o') {
-    // o
-    declareWinner('o')
+      // o
+      declareWinner('o');
     }
   }
 
@@ -135,11 +135,11 @@ function checkWinCondition() {
     let b9Child = b9.childNodes[0].className;
 
     if(b3Child == 'x' && b6Child == 'x' && b9Child == 'x') {
-    // x
-    declareWinner('x');
+      // x
+      declareWinner('x');
     } else if(b3Child == 'o' && b6Child == 'o' && b9Child == 'o') {
-    // o
-    declareWinner('o');
+      // o
+      declareWinner('o');
     }
   }
 
@@ -150,11 +150,11 @@ function checkWinCondition() {
     let b9Child = b9.childNodes[0].className;
 
     if(b1Child == 'x' && b5Child == 'x' && b9Child == 'x') {
-    // x
-    declareWinner('x');
+      // x
+      declareWinner('x');
     } else if(b1Child == 'o' && b5Child == 'o' && b9Child == 'o') {
-    // o
-    declareWinner('o');
+      // o
+      declareWinner('o');
     }
   }  
 
@@ -164,24 +164,24 @@ function checkWinCondition() {
     let b7Child = b7.childNodes[0].className;
 
     if(b3Child == 'x' && b5Child == 'x' && b7Child == 'x') {
-    // x
-    declareWinner('x');
+      // x
+      declareWinner('x');
     } else if(b3Child == 'o' && b5Child == 'o' && b7Child == 'o') {
-    // o
-    declareWinner('o');
+      // o
+      declareWinner('o');
     }
   }  
 
   // Got old ( Deu velha )
-  let counter = 0
-  for(let i = 0; i < boxes.length; i++) {
-    if(boxes[i].childNodes[0] != undefined) {
+  let counter = 0;
+    for(let i = 0; i < boxes.length; i++) {
+      if(boxes[i].childNodes[0] != undefined) {
       counter++;
+      }
     }
-  }
 
   if(counter == 9) {
-    declareWinner('Got old')
+    declareWinner('Got old');
   }
 
 }
@@ -195,10 +195,10 @@ function declareWinner(winner) {
 
   if(winner == 'x') {
     scoreboardX.textContent = parseInt(scoreboardX.textContent) + 1;
-    msg = 'Player 1 win';
+    msg = 'Player 1 win !!!';
   } else if(winner == 'o') {
     scoreboardY.textContent = parseInt(scoreboardY.textContent) + 1;
-    msg = 'Player 2 win';
+    msg = 'Player 2 win !!!';
   } else {
     msg = 'Got old';
   }
