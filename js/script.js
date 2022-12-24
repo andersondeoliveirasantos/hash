@@ -217,8 +217,8 @@ function declareWinner(winner) {
   player2 = 0;
 
 // Remove x e o
-let boxesTorRemove = document.querySelectorAll('.box div');
-  for(let i = 0; i < boxesTorRemove.length; i++) {
-    boxesTorRemove[i].parentNode.removeChild(boxesTorRemove[i])
+let boxesToRemove = document.querySelectorAll('.box div');
+  for(let i = 0; i < boxesToRemove.length; i++) {
+    boxesToRemove[i].parentNode.removeChild(boxesToRemove[i]);
   }
 }
