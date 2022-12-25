@@ -1,39 +1,50 @@
-let x = document.querySelector('.x')
-let o = document.querySelector('.o')
-let boxes = document.querySelectorAll('.box')
-let buttons = document.querySelectorAll('#buttons-container button')
-let messageContainer = document.querySelector('#message')
-let messageText = document.querySelector('#message p')
-let secondPlayer
+let x = document.querySelector('.x');
+let o = document.querySelector('.o');
+let boxes = document.querySelectorAll('.box');
+let buttons = document.querySelectorAll('#buttons-container button');
+let messageContainer = document.querySelector('#message');
+let messageText = document.querySelector('#message p');
+let secondPlayer;
 
-// Move counter ( contador de jogadas )
-let player1 = 0
-let player2 = 0
+// Move counter ( contador de jogadas );
+let player1 = 0;
+let player2 = 0;
 
 // Adding the click event to boxes ( Adicionando o evento click aos boxes )
 for (let i = 0; i < boxes.length; i++) {
 
 // When someone clicks on the box ( Quando alguém clicar na caixa )
   boxes[i].addEventListener('click', function() {
-    let el = checkEl(player1, player2)
+    let el = checkEl(player1, player2);
 
     // Checks if it already has X or O ( Verifica se já tem X ou O )
     if(this.childNodes.length == 0) {
-      let cloneEl = el.cloneNode(true)
-      this.appendChild(cloneEl)
+      let cloneEl = el.cloneNode(true);
+      this.appendChild(cloneEl);
   
         // Compute the game ( Computar a jogada )
         if(player1 == player2) {
-          player1++
+          player1++;
         } else {
-          player2++
+          player2++;
         }
 
         // Check who won ( Checar quem venceu )
-        checkWinCondition() 
+        checkWinCondition();
     }
   })
 }
+
+// Event to find out if it's 02 players or AI ( Evento para saber se é 02 players ou IA )
+for(let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener('click', function() {
+    secondPlayer = this.getAttribute('id');
+    for(let j = 0; j < buttons.length; j++) {
+      buttons[j].style.display = 'none';
+    }
+  })
+}
+
 
 // See who will play ( Ver quem vai jogar )
 function checkEl(player1, player2) {
