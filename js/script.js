@@ -250,14 +250,22 @@ function computerPlay() {
   filled = 0;
     for(let i = 0; i < boxes.length; i++) {
       let randomNumber = Math.floor(Math.random() * 5);
-      if(boxes[i].childNodes[0] == undefined) {
-        if(randomNumber <= 1) {
-          boxes[i].appendChild(cloneO);
-          counter++;
-          break;
-        }
-      } else {
-        filled++;
-      }
-    }
+
+// Only fill in if the child is empty ( Só preencher se estiver vazio o filho )
+if(boxes[i].childNodes[0] == undefined) {
+  if(randomNumber <= 1) {
+    boxes[i].appendChild(cloneO);
+    counter++;
+    break;
+  }
+
+// Checking how many are filled ( Checagem de quantas estão preenchidas )
+} else {
+  filled++;
+}
+}
+
+if(counter == 0 && filled < 9) {
+  computerPlay();
+}
 }
