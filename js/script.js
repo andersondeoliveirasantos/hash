@@ -25,6 +25,11 @@ for (let i = 0; i < boxes.length; i++) {
         // Compute the game ( Computar a jogada )
         if(player1 == player2) {
           player1++;
+          if(secondPlayer == 'ai-player') {
+            // Play play function ( Função executar a jogada )
+            computerPlay();
+            player2++;
+          }
         } else {
           player2++;
         }
@@ -42,7 +47,11 @@ for(let i = 0; i < buttons.length; i++) {
     for(let j = 0; j < buttons.length; j++) {
       buttons[j].style.display = 'none';
     }
-  })
+    setTimeout(function() {
+      let container = document.querySelector('#container');
+      container.classList.remove('hide');
+    }, 500);
+  });
 }
 
 
@@ -233,3 +242,7 @@ let boxesToRemove = document.querySelectorAll('.box div');
     boxesToRemove[i].parentNode.removeChild(boxesToRemove[i]);
   }
 }
+
+// Execute CPU move logic ( Executar a lógica da jogada do CPU )
+
+computerPlay
