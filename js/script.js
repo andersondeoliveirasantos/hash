@@ -244,5 +244,20 @@ let boxesToRemove = document.querySelectorAll('.box div');
 }
 
 // Execute CPU move logic ( Executar a lógica da jogada do CPU )
-
-computerPlay
+function computerPlay() {
+  let cloneO = o.cloneNode(true);
+  counter = 0;
+  filled = 0;
+    for(let i = 0; i < boxes.length; i++) {
+      let randomNumber = Math.floor(Math.random() * 5);
+      if(boxes[i].childNodes[0] == undefined) {
+        if(randomNumber <= 1) {
+          boxes[i].appendChild(cloneO);
+          counter++;
+          break;
+        }
+      } else {
+        filled++;
+      }
+    }
+}
