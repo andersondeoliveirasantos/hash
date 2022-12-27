@@ -8,7 +8,6 @@ h1 {
 }
 
 /* buttons */
-
 #buttons-container button {
   border:  none;
   padding: 10px 15px;
@@ -16,7 +15,6 @@ h1 {
 }
 
 /* game*/
-
 #container {
   display: flex;
   width: 300px;
@@ -52,7 +50,6 @@ h1 {
 }
 
 /* symbols */
-
 .x {
   font-size: 65px;
   color: red;
@@ -70,13 +67,11 @@ h1 {
 }
 
 /* Hide class */
-
 .hide {
   display: none !important;
 }
 
 /* Scoreboard ( placar ) */ 
-
 #scoreboard-container {
   font-weight: bold;
   margin-top: 30px;
@@ -105,7 +100,6 @@ h1 {
 }
 
 /* Victory message */
-
 #message p {
   position: absolute;
   margin-left: auto;
