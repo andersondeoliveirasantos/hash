@@ -13,69 +13,69 @@ let player2 = 0;
 // Adding the click event to boxes ( Adicionando o evento click aos boxes )
 for (let i = 0; i < boxes.length; i++) {
 
-// When someone clicks on the box ( Quando alguém clicar na caixa )
-  boxes[i].addEventListener('click', function() {
-    let el = checkEl(player1, player2);
+  // When someone clicks on the box ( Quando alguém clicar na caixa )
+    boxes[i].addEventListener('click', function() {
+      let el = checkEl(player1, player2);
 
-    // Checks if it already has X or O ( Verifica se já tem X ou O )
+  // Checks if it already has X or O ( Verifica se já tem X ou O )
     if(this.childNodes.length == 0) {
       let cloneEl = el.cloneNode(true);
       this.appendChild(cloneEl);
   
-        // Compute the game ( Computar a jogada )
-        if(player1 == player2) {
-          player1++;
-          if(secondPlayer == 'ai-player') {
-            // Play play function ( Função executar a jogada )
-            computerPlay();
+  // Compute the game ( Computar a jogada )
+    if(player1 == player2) {
+      player1++;
+        if(secondPlayer == 'ai-player') {
+          // Play play function ( Função executar a jogada )
+          computerPlay();
             player2++;
           }
-        } else {
-          player2++;
-        }
+    } else {
+          player2++;     
+      }
 
-        // Check who won ( Checar quem venceu )
+    // Check who won ( Checar quem venceu )
         checkWinCondition();
     }
   })
-}
+  }
 
-// Event to find out if it's 02 players or AI ( Evento para saber se é 02 players ou IA )
-for(let i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener('click', function() {
-    secondPlayer = this.getAttribute('id');
-    for(let j = 0; j < buttons.length; j++) {
-      buttons[j].style.display = 'none';
+  // Event to find out if it's 02 players or AI ( Evento para saber se é 02 players ou IA )
+  for(let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function() {
+      secondPlayer = this.getAttribute('id');
+      for(let j = 0; j < buttons.length; j++) {
+        buttons[j].style.display = 'none';
     }
     setTimeout(function() {
-      let container = document.querySelector('#container');
-      container.classList.remove('hide');
-    }, 500);
-  });
-}
-
-
-// See who will play ( Ver quem vai jogar )
-function checkEl(player1, player2) {
-  if (player1 == player2) {
-    el = x    
-  } else {
-    el = o
+        let container = document.querySelector('#container');
+        container.classList.remove('hide');
+      }, 500);
+    });
   }
-  return el
-}
 
-// See who won ( Ver quem venceu )
-function checkWinCondition() {
-  let b1 = document.getElementById('block-1');
-  let b2 = document.getElementById('block-2');
-  let b3 = document.getElementById('block-3');
-  let b4 = document.getElementById('block-4');
-  let b5 = document.getElementById('block-5');
-  let b6 = document.getElementById('block-6');
-  let b7 = document.getElementById('block-7');
-  let b8 = document.getElementById('block-8');
-  let b9 = document.getElementById('block-9');
+
+  // See who will play ( Ver quem vai jogar )
+  function checkEl(player1, player2) {
+    if(player1 == player2) {
+      el = x;
+    } else {
+      el = o;
+    }
+    return el;
+  }
+
+  // See who won ( Ver quem venceu )
+  function checkWinCondition() {
+    let b1 = document.getElementById('block-1');
+    let b2 = document.getElementById('block-2');
+    let b3 = document.getElementById('block-3');
+    let b4 = document.getElementById('block-4');
+    let b5 = document.getElementById('block-5');
+    let b6 = document.getElementById('block-6');
+    let b7 = document.getElementById('block-7');
+    let b8 = document.getElementById('block-8');
+    let b9 = document.getElementById('block-9');
 
   // Check horizontal ( Checar horizontal )
   if(b1.childNodes.length > 0 && b2.childNodes.length > 0 && b3.childNodes.length > 0) {
@@ -90,7 +90,7 @@ function checkWinCondition() {
       // o
       declareWinner('o');
     }
-  }
+    }
 
   if(b4.childNodes.length > 0 && b5.childNodes.length > 0 && b6.childNodes.length > 0) {
     let b4Child = b4.childNodes[0].className;
@@ -204,24 +204,25 @@ function checkWinCondition() {
     declareWinner('Got old');
   }
 
-}
-
-// Clears the game, declares the winner and updates the scoreboard ( Limpa o jogo, declara o vencedor e atualiza o placar )
-function declareWinner(winner) {
-  
-  let scoreboardX = document.querySelector('#scoreboard-1');
-  let scoreboardY = document.querySelector('#scoreboard-2');
-  let msg = ' ';
-
-  if(winner == 'x') {
-    scoreboardX.textContent = parseInt(scoreboardX.textContent) + 1;
-    msg = 'Player 1 win !!!';
-  } else if(winner == 'o') {
-    scoreboardY.textContent = parseInt(scoreboardY.textContent) + 1;
-    msg = 'Player 2 win !!!';
-  } else {
-    msg = 'Got old';
   }
+
+  // Clears the game, declares the winner and updates the scoreboard ( Limpa o jogo, declara o vencedor e atualiza o placar )
+  function declareWinner(winner) {
+    
+    let scoreboardX = document.querySelector('#scoreboard-1');
+    let scoreboardY = document.querySelector('#scoreboard-2');
+    let msg = ' ';
+
+    if(winner == 'x') {
+      scoreboardX.textContent = parseInt(scoreboardX.textContent) + 1;
+      msg = 'Player 1 win !!!';
+    } else if(winner == 'o') {
+      scoreboardY.textContent = parseInt(scoreboardY.textContent) + 1;
+      msg = 'Player 2 win !!!';
+    } else {
+
+      
+    }
 
   // Display message ( Exibe mensagem )
   messageText.innerHTML = msg;
@@ -232,40 +233,40 @@ function declareWinner(winner) {
     messageContainer.classList.add('hide');
   }, 3000);
 
-// Zero moves ( Zera jogadas )
-  player1 = 0;
-  player2 = 0;
+  // Zero moves ( Zera jogadas )
+    player1 = 0;
+    player2 = 0;
 
-// Remove x e o
-let boxesToRemove = document.querySelectorAll('.box div');
-  for(let i = 0; i < boxesToRemove.length; i++) {
-    boxesToRemove[i].parentNode.removeChild(boxesToRemove[i]);
-  }
-}
-
-// Execute CPU move logic ( Executar a lógica da jogada do CPU )
-function computerPlay() {
-  let cloneO = o.cloneNode(true);
-  counter = 0;
-  filled = 0;
-    for(let i = 0; i < boxes.length; i++) {
-      let randomNumber = Math.floor(Math.random() * 5);
-
-// Only fill in if the child is empty ( Só preencher se estiver vazio o filho )
-if(boxes[i].childNodes[0] == undefined) {
-  if(randomNumber <= 1) {
-    boxes[i].appendChild(cloneO);
-    counter++;
-    break;
+  // Remove x e o
+  let boxesToRemove = document.querySelectorAll('.box div');
+    for(let i = 0; i < boxesToRemove.length; i++) {
+      boxesToRemove[i].parentNode.removeChild(boxesToRemove[i]);
+    }
   }
 
-// Checking how many are filled ( Checagem de quantas estão preenchidas )
-} else {
-  filled++;
-}
-}
+  // Execute CPU move logic ( Executar a lógica da jogada do CPU )
+  function computerPlay() {
+    let cloneO = o.cloneNode(true);
+    counter = 0;
+    filled = 0;
+      for(let i = 0; i < boxes.length; i++) {
+        let randomNumber = Math.floor(Math.random() * 5);
 
-if(counter == 0 && filled < 9) {
-  computerPlay();
-}
+  // Only fill in if the child is empty ( Só preencher se estiver vazio o filho )
+  if(boxes[i].childNodes[0] == undefined) {
+    if(randomNumber <= 1) {
+      boxes[i].appendChild(cloneO);
+      counter++;
+      break;
+    }
+
+  // Checking how many are filled ( Checagem de quantas estão preenchidas )
+  } else {
+    filled++;
+  }
+  }
+
+  if(counter == 0 && filled < 9) {
+    computerPlay();
+  }
 }
